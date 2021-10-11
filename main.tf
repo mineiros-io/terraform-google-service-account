@@ -1,7 +1,7 @@
 data "google_project" "project" {}
 
 locals {
-  project           = var.project != null ? var.project : data.google_project.project
+  project           = var.project != null ? var.project : data.google_project.project.id
   precomputed_email = "${var.account_id}@${local.project}.iam.gserviceaccount.com"
 }
 
