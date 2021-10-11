@@ -1,3 +1,10 @@
+data "google_project" "project" {}
+
+locals {
+  project           = var.project != null ? var.project : data.google_project.project
+  precomputed_email = "${var.account_id}@${local.project}.iam.gserviceaccount.com"
+}
+
 resource "google_service_account" "service_account" {
   count = var.module_enabled ? 1 : 0
 
@@ -6,7 +13,7 @@ resource "google_service_account" "service_account" {
   account_id   = var.account_id
   display_name = var.display_name != null ? var.display_name : var.account_id
   description  = var.description != null ? var.description : "Programmatic access for ${var.display_name != null ? var.display_name : var.account_id}"
-  project      = var.project
+  project      = local.project
 }
 
 locals {
