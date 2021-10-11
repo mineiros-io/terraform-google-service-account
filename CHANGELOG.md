@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2]
+
+### Added
+
+- Add `precomputed_email` output to be used in `for_each`.
+
 ## [0.0.1]
 
 ### Added
@@ -15,7 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- markdown-link-check-disable -->
 
-[unreleased]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.1...HEAD
-[0.0.1]: https://github.com/mineiros-io/terraform-google-service-account/releases/tag/v0.0.1
+[unreleased]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.2...HEAD
+[0.0.2]: https://github.com/mineiros-io/terraform-google-service-account/releases/tag/v0.0.1...v0.0.2
 
 <!-- markdown-link-check-disabled -->
+
+[0.0.1]: https://github.com/mineiros-io/terraform-google-service-account/releases/tag/v0.0.1

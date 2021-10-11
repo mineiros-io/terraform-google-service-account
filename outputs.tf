@@ -2,6 +2,12 @@
 # OUTPUT CALCULATED VARIABLES (prefer full objects)
 # ------------------------------------------------------------------------------
 
+output "precomputed_email" {
+  description = "The pre computed email of the service_account to be used with for_each."
+  value       = local.precomputed_email
+
+}
+
 # ------------------------------------------------------------------------------
 # OUTPUT ALL RESOURCES AS FULL OBJECTS
 # ------------------------------------------------------------------------------
