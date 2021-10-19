@@ -53,6 +53,20 @@ variable "organization_access" {
   default     = {}
 }
 
+## IAM
+
+variable "iam" {
+  description = "(Optional) A list of IAM access."
+  type        = any
+  default     = []
+}
+
+variable "policy_bindings" {
+  description = "(Optional) A list of IAM policy bindings."
+  type        = any
+  default     = null
+}
+
 # ------------------------------------------------------------------------------
 # MODULE CONFIGURATION PARAMETERS
 # These variables are used to configure the module.

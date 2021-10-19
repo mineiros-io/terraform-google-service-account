@@ -8,6 +8,12 @@ output "precomputed_email" {
 
 }
 
+# remap iam to reduce one level of access (iam[]. instead of iam[].iam.)
+output "iam" {
+  description = "The iam resource objects that define the access to the secret"
+  value       = { for key, iam in module.iam : key => iam.iam }
+}
+
 # ------------------------------------------------------------------------------
 # OUTPUT ALL RESOURCES AS FULL OBJECTS
 # ------------------------------------------------------------------------------
