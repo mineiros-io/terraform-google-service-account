@@ -18,7 +18,7 @@ module "iam" {
 
   service_account_id = google_service_account.service_account[0].name
   role               = try(each.value.role, null)
-  members            = try(each.value.members, null)
+  members            = try(each.value.members, [])
   authoritative      = try(each.value.authoritative, true)
   policy_bindings    = try(each.value.policy_bindings, null)
 }
