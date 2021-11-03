@@ -4,7 +4,7 @@
 [![Google Provider Version][badge-tf-gcp]][releases-google-provider]
 [![Join Slack][badge-slack]][slack]
 
-# terraform-google-folder-iam
+# terraform-google-service-account
 
 A [Terraform] module for [Google Cloud Platform (GCP)][gcp].
 
