@@ -1,7 +1,10 @@
-data "google_project" "project" {}
+# fail-fast: ensure the project exists at plan time and that we have access
+data "google_project" "project" {
+  project_id = var.project
+}
 
 locals {
-  project           = var.project != null ? var.project : data.google_project.project.id
+  project           = data.google_project.project.project_id
   precomputed_email = "${var.account_id}@${local.project}.iam.gserviceaccount.com"
 }
 
