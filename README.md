@@ -303,8 +303,6 @@ The following attributes are exported in the outputs of the module:
 
   All attributes of the created `google_organization_iam_member` resource.
 
-<!-- all outputs in outputs.tf-->
-
 ## External Documentation
 
 ### Google Documentation

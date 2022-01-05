@@ -377,8 +377,6 @@ section {
       - **`organization_iam_member`**
 
         All attributes of the created `google_organization_iam_member` resource.
-
-      <!-- all outputs in outputs.tf-->
     END
   }
 
