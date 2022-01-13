@@ -9,14 +9,14 @@ locals {
 }
 
 module "iam" {
-  source = "github.com/mineiros-io/terraform-google-service-account-iam.git?ref=v0.0.2"
+  source = "github.com/mineiros-io/terraform-google-service-account-iam.git?ref=v0.0.4"
 
   for_each = var.policy_bindings != null ? local.policy_bindings : local.iam_map
 
   module_enabled    = var.module_enabled
   module_depends_on = var.module_depends_on
 
-  service_account_id = google_service_account.service_account[0].name
+  service_account_id = try(google_service_account.service_account[0].name, null)
   role               = try(each.value.role, null)
   members            = try(each.value.members, [])
   authoritative      = try(each.value.authoritative, true)
