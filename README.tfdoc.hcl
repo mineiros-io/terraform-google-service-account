@@ -55,6 +55,8 @@ section {
       - `google_service_account`
 
       and supports additional features of the following modules:
+
+      - [mineiros-io/terraform-google-service-account-iam](https://github.com/mineiros-io/terraform-google-service-account-iam)
     END
   }
 
