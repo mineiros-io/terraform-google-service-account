@@ -59,7 +59,6 @@ resource "google_folder_iam_member" "folder" {
   role   = each.value.role
 
   member = "serviceAccount:${google_service_account.service_account[0].email}"
-
 }
 
 resource "google_organization_iam_member" "organization" {
