@@ -22,7 +22,7 @@ resource "google_service_account" "service_account" {
 locals {
   projects_access_list = flatten([
     for project in var.projects_access : [
-      for role in project.roles : {
+      for role in toset(project.roles) : {
         project = project.project
         role    = role
       }
@@ -33,7 +33,7 @@ locals {
 
   folders_access_list = flatten([
     for folder in var.folders_access : [
-      for role in folder.roles : {
+      for role in toset(folder.roles) : {
         folder = folder.folder
         role   = role
       }

@@ -45,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Do not fail unset provider project if project argument is provided
+- Add missing `toset` to `project.roles` and `folder.roles`
 
 ## [0.0.5]
 
