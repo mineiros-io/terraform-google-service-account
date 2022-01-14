@@ -7,11 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- BREAKING: Remove support for Terraform `<= 1.0`. Exclude broken Terraform versions `1.1.0` and `1.1.1`.
+- BREAKING: Update minimum required version of the google provider to `v3.59` to match the minimum requirements of the `terraform-google-service-account-iam` submodule
+
+### Fixed
+
+- Fix attributes in nested `terraform-google-service-account-iam` module to not fail when `module_enabled = false`
+- Wrap `google_service_account` resource in `try` statement in `iam` definition to fix `module_enabled = false`
+
+
 ## [0.0.9]
 
 ### Fixed
 
-- Fix `module_enaled = false`
+- Fix `module_enabled = false`
 
 ## [0.0.8]
 
