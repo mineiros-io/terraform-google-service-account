@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fix attributes in nested `terraform-google-service-account-iam` module to not fail when `module_enabled = false`
 - Wrap `google_service_account` resource in `try` statement in `iam` definition to fix `module_enabled = false`
+- Fix documentation for `projects_access`, `folders_access` and `organization_access`
 
 ### Added
 

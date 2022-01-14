@@ -147,7 +147,7 @@ section {
         readme_example = <<-END
           projects_access = [{
             project = "your-project-id"
-            role    = "roles/editor"
+            roles    = ["roles/editor"]
           }]
         END
 
@@ -159,11 +159,11 @@ section {
           END
         }
 
-        attribute "role" {
+        attribute "roles" {
           required    = true
-          type        = string
+          type        = set(string)
           description = <<-END
-            The role that should be applied.
+            The set of roles that should be applied.
           END
         }
       }
@@ -177,7 +177,7 @@ section {
         readme_example = <<-END
           folders_access = [{
             folder = "folders/folder_id"
-            role   = "roles/editor"
+            roles  = ["roles/editor"]
           }]
         END
 
@@ -189,11 +189,11 @@ section {
           END
         }
 
-        attribute "role" {
+        attribute "roles" {
           required    = true
-          type        = string
+          type        = set(string)
           description = <<-END
-            The role that should be applied.
+            The set of roles that should be applied.
           END
         }
       }
@@ -207,7 +207,7 @@ section {
         readme_example = <<-END
           organization_access = {
             org_id = "your-organization-id"
-            role   = "roles/editor"
+            roles  = ["roles/editor"]
           }
         END
 
@@ -219,11 +219,11 @@ section {
           END
         }
 
-        attribute "role" {
+        attribute "roles" {
           required    = true
-          type        = string
+          type        = set(string)
           description = <<-END
-            The role that should be applied.
+            The set of roles that should be applied.
           END
         }
       }
