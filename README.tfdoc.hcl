@@ -147,7 +147,7 @@ section {
         readme_example = <<-END
           projects_access = [{
             project = "your-project-id"
-            roles    = ["roles/editor"]
+            roles   = ["roles/editor"]
           }]
         END
 
@@ -163,7 +163,7 @@ section {
           required    = true
           type        = set(string)
           description = <<-END
-            The set of roles that should be applied.
+            A set of roles that should be applied.
           END
         }
       }
@@ -193,7 +193,7 @@ section {
           required    = true
           type        = set(string)
           description = <<-END
-            The set of roles that should be applied.
+            A set of roles that should be applied.
           END
         }
       }
@@ -223,7 +223,7 @@ section {
           required    = true
           type        = set(string)
           description = <<-END
-            The set of roles that should be applied.
+            A set of roles that should be applied.
           END
         }
       }
