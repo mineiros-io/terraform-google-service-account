@@ -112,7 +112,7 @@ See [variables.tf] and [examples/] for details and use-cases.
   ```hcl
   projects_access = [{
     project = "your-project-id"
-    role    = "roles/editor"
+    roles    = ["roles/editor"]
   }]
   ```
 
@@ -122,9 +122,9 @@ See [variables.tf] and [examples/] for details and use-cases.
 
     The project ID.
 
-  - [**`role`**](#attr-projects_access-role): *(**Required** `string`)*<a name="attr-projects_access-role"></a>
+  - [**`roles`**](#attr-projects_access-roles): *(**Required** `set(string)`)*<a name="attr-projects_access-roles"></a>
 
-    The role that should be applied.
+    The set of roles that should be applied.
 
 - [**`folders_access`**](#var-folders_access): *(Optional `list(folders_access)`)*<a name="var-folders_access"></a>
 
@@ -137,7 +137,7 @@ See [variables.tf] and [examples/] for details and use-cases.
   ```hcl
   folders_access = [{
     folder = "folders/folder_id"
-    role   = "roles/editor"
+    roles  = ["roles/editor"]
   }]
   ```
 
@@ -147,9 +147,9 @@ See [variables.tf] and [examples/] for details and use-cases.
 
     The resource name of the folder the policy is attached to. Its format is `folders/{folder_id}`.
 
-  - [**`role`**](#attr-folders_access-role): *(**Required** `string`)*<a name="attr-folders_access-role"></a>
+  - [**`roles`**](#attr-folders_access-roles): *(**Required** `set(string)`)*<a name="attr-folders_access-roles"></a>
 
-    The role that should be applied.
+    The set of roles that should be applied.
 
 - [**`organization_access`**](#var-organization_access): *(Optional `object(organization_access)`)*<a name="var-organization_access"></a>
 
@@ -162,7 +162,7 @@ See [variables.tf] and [examples/] for details and use-cases.
   ```hcl
   organization_access = {
     org_id = "your-organization-id"
-    role   = "roles/editor"
+    roles  = ["roles/editor"]
   }
   ```
 
@@ -172,9 +172,9 @@ See [variables.tf] and [examples/] for details and use-cases.
 
     The organization ID.
 
-  - [**`role`**](#attr-organization_access-role): *(**Required** `string`)*<a name="attr-organization_access-role"></a>
+  - [**`roles`**](#attr-organization_access-roles): *(**Required** `set(string)`)*<a name="attr-organization_access-roles"></a>
 
-    The role that should be applied.
+    The set of roles that should be applied.
 
 ### Extended Resource Configuration
 
