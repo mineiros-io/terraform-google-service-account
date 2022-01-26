@@ -351,35 +351,56 @@ section {
     title   = "Module Outputs"
     content = <<-END
       The following attributes are exported in the outputs of the module:
-
-      - **`module_enabled`**
-
-        Whether this module is enabled.
-
-      - **`repository`**
-
-        All `google_artifact_registry_repository` resource attributes.
-
-      - **`iam`**
-
-        The `iam` resource objects that define the access to the resources.
-
-      - **`precomputed_email`**
-
-        The pre computed email of the service_account to be used with for_each.
-
-      - **`service_account`**
-
-        All attributes of the created `google_service_account` resource.
-
-      - **`folder_iam_member`**
-
-        All attributes of the created `google_folder_iam_member` resource.
-
-      - **`organization_iam_member`**
-
-        All attributes of the created `google_organization_iam_member` resource.
     END
+
+    output "module_enabled" {
+      type        = bool
+      description = <<-END
+        Whether this module is enabled.
+      END
+    }
+
+    output "repository" {
+      type        = object(repository)
+      description = <<-END
+        All `google_artifact_registry_repository` resource attributes.
+      END
+    }
+
+    output "iam" {
+      type        = list(iam)
+      description = <<-END
+        The `iam` resource objects that define the access to the resources.
+      END
+    }
+
+    output "precomputed_email" {
+      type        = string
+      description = <<-END
+        The pre computed email of the service_account to be used with for_each.
+      END
+    }
+
+    output "service_account" {
+      type        = object(service_account)
+      description = <<-END
+        All attributes of the created `google_service_account` resource.
+      END
+    }
+
+    output "folder_iam_member" {
+      type        = object(folder_iam_member)
+      description = <<-END
+        All attributes of the created `google_folder_iam_member` resource.
+      END
+    }
+
+    output "organization_iam_member" {
+      type        = object(organization_iam_member)
+      description = <<-END
+        All attributes of the created `google_organization_iam_member` resource.
+      END
+    }
   }
 
   section {
@@ -388,14 +409,14 @@ section {
     section {
       title   = "Google Documentation"
       content = <<-END
-          - https://cloud.google.com/iam/docs/service-accounts
+        - https://cloud.google.com/iam/docs/service-accounts
       END
     }
 
     section {
       title   = "Terraform Google Provider Documentation:"
       content = <<-END
-        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
+      - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
       END
     }
   }
