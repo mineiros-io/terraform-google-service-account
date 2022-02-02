@@ -112,7 +112,7 @@ See [variables.tf] and [examples/] for details and use-cases.
   ```hcl
   projects_access = [{
     project = "your-project-id"
-    roles    = ["roles/editor"]
+    roles   = ["roles/editor"]
   }]
   ```
 
@@ -124,7 +124,7 @@ See [variables.tf] and [examples/] for details and use-cases.
 
   - [**`roles`**](#attr-projects_access-roles): *(**Required** `set(string)`)*<a name="attr-projects_access-roles"></a>
 
-    The set of roles that should be applied.
+    A set of roles that should be applied.
 
 - [**`folders_access`**](#var-folders_access): *(Optional `list(folders_access)`)*<a name="var-folders_access"></a>
 
@@ -149,7 +149,7 @@ See [variables.tf] and [examples/] for details and use-cases.
 
   - [**`roles`**](#attr-folders_access-roles): *(**Required** `set(string)`)*<a name="attr-folders_access-roles"></a>
 
-    The set of roles that should be applied.
+    A set of roles that should be applied.
 
 - [**`organization_access`**](#var-organization_access): *(Optional `object(organization_access)`)*<a name="var-organization_access"></a>
 
@@ -174,7 +174,7 @@ See [variables.tf] and [examples/] for details and use-cases.
 
   - [**`roles`**](#attr-organization_access-roles): *(**Required** `set(string)`)*<a name="attr-organization_access-roles"></a>
 
-    The set of roles that should be applied.
+    A set of roles that should be applied.
 
 ### Extended Resource Configuration
 
@@ -277,31 +277,31 @@ See [variables.tf] and [examples/] for details and use-cases.
 
 The following attributes are exported in the outputs of the module:
 
-- **`module_enabled`**
+- [**`module_enabled`**](#output-module_enabled): *(`bool`)*<a name="output-module_enabled"></a>
 
   Whether this module is enabled.
 
-- **`repository`**
+- [**`repository`**](#output-repository): *(`object(repository)`)*<a name="output-repository"></a>
 
   All `google_artifact_registry_repository` resource attributes.
 
-- **`iam`**
+- [**`iam`**](#output-iam): *(`list(iam)`)*<a name="output-iam"></a>
 
   The `iam` resource objects that define the access to the resources.
 
-- **`precomputed_email`**
+- [**`precomputed_email`**](#output-precomputed_email): *(`string`)*<a name="output-precomputed_email"></a>
 
   The pre computed email of the service_account to be used with for_each.
 
-- **`service_account`**
+- [**`service_account`**](#output-service_account): *(`object(service_account)`)*<a name="output-service_account"></a>
 
   All attributes of the created `google_service_account` resource.
 
-- **`folder_iam_member`**
+- [**`folder_iam_member`**](#output-folder_iam_member): *(`object(folder_iam_member)`)*<a name="output-folder_iam_member"></a>
 
   All attributes of the created `google_folder_iam_member` resource.
 
-- **`organization_iam_member`**
+- [**`organization_iam_member`**](#output-organization_iam_member): *(`object(organization_iam_member)`)*<a name="output-organization_iam_member"></a>
 
   All attributes of the created `google_organization_iam_member` resource.
 
