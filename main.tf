@@ -6,8 +6,8 @@ data "google_project" "project" {
 }
 
 locals {
-  project           = try(data.google_project.project[0].project_id, null)
-  precomputed_email = try("${var.account_id}@${local.project}.iam.gserviceaccount.com", null)
+  project           = try(data.google_project.project[0].project_id, "")
+  precomputed_email = "${var.account_id}@${local.project}.iam.gserviceaccount.com"
 }
 
 resource "google_service_account" "service_account" {
