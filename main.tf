@@ -1,11 +1,13 @@
 # fail-fast: ensure the project exists at plan time and that we have access
 data "google_project" "project" {
+  count = var.module_enabled ? 1 : 0
+
   project_id = var.project
 }
 
 locals {
-  project           = data.google_project.project.project_id
-  precomputed_email = "${var.account_id}@${local.project}.iam.gserviceaccount.com"
+  project           = try(data.google_project.project[0].project_id, null)
+  precomputed_email = try("${var.account_id}@${local.project}.iam.gserviceaccount.com", null)
 }
 
 resource "google_service_account" "service_account" {

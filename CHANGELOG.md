@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Only use `google_project` data source when `module_enabled = true`
+
 ## [0.0.10]
 
 ### Changed
