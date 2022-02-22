@@ -7,12 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.11]
-
-### Fixed
-
-- Only use `google_project` data source when `module_enabled = true`
-
 ## [0.0.10]
 
 ### Changed
@@ -25,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix attributes in nested `terraform-google-service-account-iam` module to not fail when `module_enabled = false`
 - Wrap `google_service_account` resource in `try` statement in `iam` definition to fix `module_enabled = false`
 - Fix documentation for `projects_access`, `folders_access` and `organization_access`
+- Only use `google_project` data source when `module_enabled = true`
 
 ### Added
 
@@ -84,8 +79,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial Implementation
 
-[unreleased]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.11...HEAD
-[0.0.10]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.10...v0.0.11
+[unreleased]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.10...HEAD
 [0.0.10]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.9...v0.0.10
 [0.0.9]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.7...v0.0.8
