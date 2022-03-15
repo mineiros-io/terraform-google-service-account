@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Remove Terraform `tomap` function use from `iam` module locals.
+- Remove redundant variable declaration from tests
 
 ## [0.0.10]
 

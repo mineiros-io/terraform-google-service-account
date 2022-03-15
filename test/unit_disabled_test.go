@@ -1,7 +1,6 @@
 package test
 
 import (
-	"os"
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -13,9 +12,6 @@ func TestUnitDisabled(t *testing.T) {
 
 	terraformOptions := &terraform.Options{
 		TerraformDir: "unit-disabled",
-		Vars: map[string]interface{}{
-			"gcp_project": os.Getenv("TF_VAR_GCP_PROJECT"),
-		},
 		Upgrade: true,
 	}
 
