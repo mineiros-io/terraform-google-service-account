@@ -239,9 +239,8 @@ section {
         END
         readme_example = <<-END
           iam = [{
-            service_account_id = "my-service-account-id"
-            role               = "roles/iam.serviceAccountUser"
-            members            = ["user:member@example.com"]
+            role    = "roles/iam.serviceAccountUser"
+            members = ["user:member@example.com"]
           }]
         END
 
