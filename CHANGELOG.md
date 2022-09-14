@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.11]
+
 ### Changed
 
 - Remove Terraform `tomap` function use from `iam` module locals.
@@ -84,7 +86,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial Implementation
 
-[unreleased]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.10...HEAD
+[unreleased]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.11...HEAD
+[0.0.11]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.9...v0.0.10
 [0.0.9]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.7...v0.0.8
