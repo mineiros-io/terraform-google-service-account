@@ -373,13 +373,6 @@ section {
       END
     }
 
-    output "precomputed_email" {
-      type        = string
-      description = <<-END
-        The pre computed email of the service_account to be used with for_each.
-      END
-    }
-
     output "service_account" {
       type        = object(service_account)
       description = <<-END

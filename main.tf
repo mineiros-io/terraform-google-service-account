@@ -1,7 +1,3 @@
-locals {
-  precomputed_email = "${var.account_id}@${var.project}.iam.gserviceaccount.com"
-}
-
 resource "google_service_account" "service_account" {
   count = var.module_enabled ? 1 : 0
 

@@ -289,10 +289,6 @@ The following attributes are exported in the outputs of the module:
 
   The `iam` resource objects that define the access to the resources.
 
-- [**`precomputed_email`**](#output-precomputed_email): *(`string`)*<a name="output-precomputed_email"></a>
-
-  The pre computed email of the service_account to be used with for_each.
-
 - [**`service_account`**](#output-service_account): *(`object(service_account)`)*<a name="output-service_account"></a>
 
   All attributes of the created `google_service_account` resource.
