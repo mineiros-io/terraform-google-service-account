@@ -67,7 +67,7 @@ section {
 
       ```hcl
       module "terraform-google-service-account" {
-        source = "github.com/mineiros-io/terraform-google-service-account?ref=v0.0.10"
+        source = "github.com/mineiros-io/terraform-google-service-account?ref=v0.0.12"
 
         account_id   = "service-account-id"
         display_name = "Service Account"
@@ -370,13 +370,6 @@ section {
       type        = list(iam)
       description = <<-END
         The `iam` resource objects that define the access to the resources.
-      END
-    }
-
-    output "precomputed_email" {
-      type        = string
-      description = <<-END
-        The pre computed email of the service_account to be used with for_each.
       END
     }
 

@@ -2,12 +2,6 @@
 # OUTPUT CALCULATED VARIABLES (prefer full objects)
 # ------------------------------------------------------------------------------
 
-output "precomputed_email" {
-  description = "The pre computed email of the service_account to be used with for_each."
-  value       = local.precomputed_email
-
-}
-
 # remap iam to reduce one level of access (iam[]. instead of iam[].iam.)
 output "iam" {
   description = "The iam resource objects that define the access to the resources."

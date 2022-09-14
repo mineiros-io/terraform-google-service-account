@@ -1,15 +1,3 @@
-# fail-fast: ensure the project exists at plan time and that we have access
-data "google_project" "project" {
-  count = var.module_enabled ? 1 : 0
-
-  project_id = var.project
-}
-
-locals {
-  project           = try(data.google_project.project[0].project_id, "")
-  precomputed_email = "${var.account_id}@${local.project}.iam.gserviceaccount.com"
-}
-
 resource "google_service_account" "service_account" {
   count = var.module_enabled ? 1 : 0
 
@@ -18,7 +6,7 @@ resource "google_service_account" "service_account" {
   account_id   = var.account_id
   display_name = var.display_name != null ? var.display_name : var.account_id
   description  = var.description != null ? var.description : "Programmatic access for ${var.display_name != null ? var.display_name : var.account_id}"
-  project      = local.project
+  project      = var.project
 }
 
 locals {

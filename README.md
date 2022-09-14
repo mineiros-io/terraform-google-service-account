@@ -52,7 +52,7 @@ Most basic usage just setting required arguments:
 
 ```hcl
 module "terraform-google-service-account" {
-  source = "github.com/mineiros-io/terraform-google-service-account?ref=v0.0.10"
+  source = "github.com/mineiros-io/terraform-google-service-account?ref=v0.0.12"
 
   account_id   = "service-account-id"
   display_name = "Service Account"
@@ -288,10 +288,6 @@ The following attributes are exported in the outputs of the module:
 - [**`iam`**](#output-iam): *(`list(iam)`)*<a name="output-iam"></a>
 
   The `iam` resource objects that define the access to the resources.
-
-- [**`precomputed_email`**](#output-precomputed_email): *(`string`)*<a name="output-precomputed_email"></a>
-
-  The pre computed email of the service_account to be used with for_each.
 
 - [**`service_account`**](#output-service_account): *(`object(service_account)`)*<a name="output-service_account"></a>
 
