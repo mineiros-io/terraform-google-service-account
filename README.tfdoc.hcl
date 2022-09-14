@@ -67,7 +67,7 @@ section {
 
       ```hcl
       module "terraform-google-service-account" {
-        source = "github.com/mineiros-io/terraform-google-service-account?ref=v0.0.10"
+        source = "github.com/mineiros-io/terraform-google-service-account?ref=v0.0.12"
 
         account_id   = "service-account-id"
         display_name = "Service Account"
