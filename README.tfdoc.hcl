@@ -359,13 +359,6 @@ section {
       END
     }
 
-    output "repository" {
-      type        = object(repository)
-      description = <<-END
-        All `google_artifact_registry_repository` resource attributes.
-      END
-    }
-
     output "iam" {
       type        = list(iam)
       description = <<-END
@@ -377,6 +370,13 @@ section {
       type        = object(service_account)
       description = <<-END
         All attributes of the created `google_service_account` resource.
+      END
+    }
+
+    output "project_iam_member" {
+      type        = object(project_iam_member)
+      description = <<-END
+        All attributes of the created `google_project_iam_member` resource.
       END
     }
 

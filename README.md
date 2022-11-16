@@ -186,9 +186,8 @@ See [variables.tf] and [examples/] for details and use-cases.
 
   ```hcl
   iam = [{
-    service_account_id = "my-service-account-id"
-    role               = "roles/iam.serviceAccountUser"
-    members            = ["user:member@example.com"]
+    role    = "roles/iam.serviceAccountUser"
+    members = ["user:member@example.com"]
   }]
   ```
 
@@ -281,10 +280,6 @@ The following attributes are exported in the outputs of the module:
 
   Whether this module is enabled.
 
-- [**`repository`**](#output-repository): *(`object(repository)`)*<a name="output-repository"></a>
-
-  All `google_artifact_registry_repository` resource attributes.
-
 - [**`iam`**](#output-iam): *(`list(iam)`)*<a name="output-iam"></a>
 
   The `iam` resource objects that define the access to the resources.
@@ -292,6 +287,10 @@ The following attributes are exported in the outputs of the module:
 - [**`service_account`**](#output-service_account): *(`object(service_account)`)*<a name="output-service_account"></a>
 
   All attributes of the created `google_service_account` resource.
+
+- [**`project_iam_member`**](#output-project_iam_member): *(`object(project_iam_member)`)*<a name="output-project_iam_member"></a>
+
+  All attributes of the created `google_project_iam_member` resource.
 
 - [**`folder_iam_member`**](#output-folder_iam_member): *(`object(folder_iam_member)`)*<a name="output-folder_iam_member"></a>
 

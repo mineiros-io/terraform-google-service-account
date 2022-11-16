@@ -4,25 +4,6 @@
 # The purpose is to activate everything the module offers, but trying to keep execution time and costs minimal.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-variable "gcp_project" {
-  type        = string
-  description = "(Required) The ID of the project in which the resource belongs."
-}
-
-terraform {
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 4.0"
-    }
-  }
-}
-
-provider "google" {
-  project = var.gcp_project
-}
-
-# DO NOT RENAME MODULE NAME
 module "test" {
   source = "../.."
 
@@ -84,9 +65,3 @@ module "test" {
 
   module_depends_on = ["nothing"]
 }
-
-# outputs generate non-idempotent terraform plans so we disable them for now unless we need them.
-# output "all" {
-#   description = "All outputs of the module."
-#   value       = module.test
-# }

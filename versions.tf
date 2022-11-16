@@ -1,14 +1,12 @@
-# ---------------------------------------------------------------------------------------------------------------------
-# SET TERRAFORM AND PROVIDER REQUIREMENTS FOR RUNNING THIS MODULE
-# ---------------------------------------------------------------------------------------------------------------------
+// TERRAMATE: GENERATED AUTOMATICALLY DO NOT EDIT
+// TERRAMATE: originated from generate_hcl block on /terramate.tm.hcl
 
 terraform {
   required_version = "~> 1.0, != 1.1.0, != 1.1.1"
-
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = ">= 3.59, < 5.0"
+      version = "~> 4.0"
     }
   }
 }
