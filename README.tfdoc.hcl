@@ -83,30 +83,6 @@ section {
     END
 
     section {
-      title = "Module Configuration"
-
-      variable "module_enabled" {
-        type        = bool
-        default     = true
-        description = <<-END
-          Specifies whether resources in the module will be created.
-        END
-      }
-
-      variable "module_depends_on" {
-        type           = list(dependency)
-        description    = <<-END
-          A list of dependencies. Any object can be _assigned_ to this list to define a hidden external dependency.
-        END
-        readme_example = <<-END
-          module_depends_on = [
-            google_network.network
-          ]
-        END
-      }
-    }
-
-    section {
       title = "Main Resource Configuration"
 
       variable "account_id" {
@@ -255,6 +231,9 @@ section {
             - `serviceAccount:{emailid}`: An email address that represents a service account. For example, my-other-app@appspot.gserviceaccount.com.
             - `group:{emailid}`: An email address that represents a Google group. For example, admins@example.com.
             - `domain:{domain}`: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
+            - `principalSet:{All identities in a group|All identities with a specific attribute value|All identities in a pool}`: Grants a role to all the identities in a workload identity pool, or to specific external identities based on their attributes. For details please see https://cloud.google.com/iam/docs/workload-identity-federation.
+      	    - `principal:{Single Identity}:` Grants a role to the specified identitiey in a workload identity pool. For details please see https://cloud.google.com/iam/docs/workload-identity-federation.
+            - `computed:{identifier}`: An existing key from `var.computed_members_map`.
           END
         }
 
@@ -343,6 +322,38 @@ section {
           }
         }
       }
+
+      variable "computed_members_map" {
+        type        = map(string)
+        description = <<-END
+           A map of members to replace in `members` of various IAM settings to handle terraform computed values.
+         END
+        default     = {}
+      }
+    }
+  }
+
+  section {
+    title = "Module Configuration"
+
+    variable "module_enabled" {
+      type        = bool
+      default     = true
+      description = <<-END
+        Specifies whether resources in the module will be created.
+      END
+    }
+
+    variable "module_depends_on" {
+      type           = list(dependency)
+      description    = <<-END
+        A list of dependencies. Any object can be _assigned_ to this list to define a hidden external dependency.
+      END
+      readme_example = <<-END
+        module_depends_on = [
+          google_network.network
+        ]
+      END
     }
   }
 
@@ -351,13 +362,6 @@ section {
     content = <<-END
       The following attributes are exported in the outputs of the module:
     END
-
-    output "module_enabled" {
-      type        = bool
-      description = <<-END
-        Whether this module is enabled.
-      END
-    }
 
     output "iam" {
       type        = list(iam)
