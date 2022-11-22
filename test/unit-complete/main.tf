@@ -21,58 +21,18 @@ module "test" {
   # add all optional arguments that create additional resources
   iam = [
     {
-      role    = "roles/browser"
-      members = ["domain:example-domain"]
-    },
-    {
-      role          = "roles/viewer"
-      members       = ["domain:example-domain", "principalSet:example"]
-      authoritative = false
-    },
-    {
       role    = "roles/test"
       members = ["serviceAccount:${module.test-sa.service_account.email}"]
-    },
-    {
-      role          = "roles/editor"
-      members       = ["computed:myserviceaccount"]
-      authoritative = false
     }
   ]
-  computed_members_map = {
-    myserviceaccount = "serviceAccount:${module.test-sa.service_account.email}"
-  }
-  projects_access = [
-    {
-      project = "terraform-service-catalog"
-      roles   = ["roles/viewer"]
-    }
-  ]
-  folders_access = [
-    {
-      folder = "692674674684"
-      roles  = ["roles/viewer"]
-    }
-  ]
-  organization_access = [
-    {
-      org_id = "52211381732"
-      roles  = ["roles/viewer"]
-    }
-  ]
+  # computed_members_map = {
+  #   myserviceaccount = "serviceAccount:${module.test-sa.service_account.email}"
+  # }
 
   # add most/all other optional arguments
   display_name = "Unit Complete Test Service Account"
   description  = "A service account created by a unit-tests in https://github.com/mineiros-io/terraform-google-service-account."
   project      = var.gcp_project
-
-  # module_timeouts = {
-  #   google_monitoring_notification_channel = {
-  #     create = "10m"
-  #     update = "10m"
-  #     delete = "10m"
-  #   }
-  # }
 
   module_depends_on = ["nothing"]
 }
