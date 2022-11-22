@@ -3,6 +3,11 @@
 # This module tests a complete set of most/all non-exclusive features
 # The purpose is to activate everything the module offers, but trying to keep execution time and costs minimal.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+module "test-sa" {
+  source = "github.com/mineiros-io/terraform-google-service-account?ref=v0.0.12"
+
+  account_id = "service-account-id-${local.random_suffix}"
+}
 
 module "test" {
   source = "../.."
@@ -15,38 +20,8 @@ module "test" {
   # add all optional arguments that create additional resources
   iam = [
     {
-      service_account_id = "my-service-account-id"
-      role               = "roles/iam.serviceAccountUser"
-      members            = ["group:terraform-tests@mineiros.io"]
-    }
-  ]
-  policy_bindings = [
-    {
       role    = "roles/iam.serviceAccountUser"
-      members = ["group:terraform-tests@mineiros.io"]
-      condition = {
-        title       = "expires_after_2030_12_31"
-        description = "Expiring at midnight of 2030-12-31"
-        expression  = "request.time < timestamp(\"2030-01-01T00:00:00Z\")"
-      }
-    }
-  ]
-  projects_access = [
-    {
-      project = "terraform-service-catalog"
-      roles   = ["roles/viewer"]
-    }
-  ]
-  folders_access = [
-    {
-      folder = "692674674684"
-      roles  = ["roles/viewer"]
-    }
-  ]
-  organization_access = [
-    {
-      org_id = "52211381732"
-      roles  = ["roles/viewer"]
+      members = ["serviceAccount:${module.test-sa.service_account.email}"]
     }
   ]
 
