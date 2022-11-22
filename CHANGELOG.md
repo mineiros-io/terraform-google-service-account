@@ -7,14 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-
-- Add support for `var.computed_members_map`
-
-### Removed
-
-- BREAKING CHANGE: Remove support for Terraform Google provider version `< 4.0`
-- BREAKING CHANGE: Remove output `module_enabled`
+- BREAKING CHANGE: Remove support for Terraform Google provider version `< 4.0`.
 
 ## [0.0.12]
 
