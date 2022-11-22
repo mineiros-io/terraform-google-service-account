@@ -21,8 +21,9 @@ module "test" {
   # add all optional arguments that create additional resources
   iam = [
     {
-      role    = "roles/test"
-      members = ["serviceAccount:${module.test-sa.service_account.email}"]
+      role          = "roles/test"
+      members       = ["serviceAccount:${module.test-sa.service_account.email}"]
+      authoritative = true
     }
   ]
   # computed_members_map = {
