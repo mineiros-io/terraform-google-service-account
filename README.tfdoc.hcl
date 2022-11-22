@@ -67,7 +67,7 @@ section {
 
       ```hcl
       module "terraform-google-service-account" {
-        source = "github.com/mineiros-io/terraform-google-service-account?ref=v0.1.0"
+        source = "github.com/mineiros-io/terraform-google-service-account?ref=v0.1.1"
 
         account_id   = "service-account-id"
         display_name = "Service Account"
@@ -115,93 +115,27 @@ section {
       }
 
       variable "projects_access" {
-        type           = list(projects_access)
-        default        = []
-        description    = <<-END
-          A set of projects with roles that are going to be granted to the service account.
+        type        = list(projects_access)
+        default     = []
+        description = <<-END
+          DEPRECATED: please convert existing access to project level IAM. This will be removed in the next breaking release.
         END
-        readme_example = <<-END
-          projects_access = [{
-            project = "your-project-id"
-            roles   = ["roles/editor"]
-          }]
-        END
-
-        attribute "project" {
-          required    = true
-          type        = string
-          description = <<-END
-            The project ID.
-          END
-        }
-
-        attribute "roles" {
-          required    = true
-          type        = set(string)
-          description = <<-END
-            A set of roles that should be applied.
-          END
-        }
       }
 
       variable "folders_access" {
-        type           = list(folders_access)
-        default        = []
-        description    = <<-END
-          A set of folders with roles that are going to be granted to the service account.
+        type        = list(folders_access)
+        default     = []
+        description = <<-END
+          DEPRECATED: please convert existing access to folder level IAM. This will be removed in the next breaking release.
         END
-        readme_example = <<-END
-          folders_access = [{
-            folder = "folders/folder_id"
-            roles  = ["roles/editor"]
-          }]
-        END
-
-        attribute "folder" {
-          required    = true
-          type        = string
-          description = <<-END
-            The resource name of the folder the policy is attached to. Its format is `folders/{folder_id}`.
-          END
-        }
-
-        attribute "roles" {
-          required    = true
-          type        = set(string)
-          description = <<-END
-            A set of roles that should be applied.
-          END
-        }
       }
 
       variable "organization_access" {
-        type           = object(organization_access)
-        default        = []
-        description    = <<-END
-          An organization object setting the organization and the organization wide roles that are going to be granted to the service account.
+        type        = object(organization_access)
+        default     = []
+        description = <<-END
+          DEPRECATED: please convert existing access to organization level IAM. This will be removed in the next breaking release.
         END
-        readme_example = <<-END
-          organization_access = {
-            org_id = "your-organization-id"
-            roles  = ["roles/editor"]
-          }
-        END
-
-        attribute "org_id" {
-          required    = true
-          type        = string
-          description = <<-END
-            The organization ID.
-          END
-        }
-
-        attribute "roles" {
-          required    = true
-          type        = set(string)
-          description = <<-END
-            A set of roles that should be applied.
-          END
-        }
       }
     }
 
@@ -380,21 +314,21 @@ section {
     output "project_iam_member" {
       type        = object(project_iam_member)
       description = <<-END
-        All attributes of the created `google_project_iam_member` resource.
+        DEPRECATED: This will be removed in the next breaking release.
       END
     }
 
     output "folder_iam_member" {
       type        = object(folder_iam_member)
       description = <<-END
-        All attributes of the created `google_folder_iam_member` resource.
+        DEPRECATED: This will be removed in the next breaking release.
       END
     }
 
     output "organization_iam_member" {
       type        = object(organization_iam_member)
       description = <<-END
-        All attributes of the created `google_organization_iam_member` resource.
+        DEPRECATED: This will be removed in the next breaking release.
       END
     }
   }
@@ -412,7 +346,8 @@ section {
     section {
       title   = "Terraform Google Provider Documentation:"
       content = <<-END
-      - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
+        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
+        - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam
       END
     }
   }
