@@ -83,78 +83,21 @@ See [variables.tf] and [examples/] for details and use-cases.
 
 - [**`projects_access`**](#var-projects_access): *(Optional `list(projects_access)`)*<a name="var-projects_access"></a>
 
-  A set of projects with roles that are going to be granted to the service account.
+  DEPRECATED: please convert existing access to project level IAM. This will be removed in the next breaking release.
 
   Default is `[]`.
-
-  Example:
-
-  ```hcl
-  projects_access = [{
-    project = "your-project-id"
-    roles   = ["roles/editor"]
-  }]
-  ```
-
-  Each `projects_access` object in the list accepts the following attributes:
-
-  - [**`project`**](#attr-projects_access-project): *(**Required** `string`)*<a name="attr-projects_access-project"></a>
-
-    The project ID.
-
-  - [**`roles`**](#attr-projects_access-roles): *(**Required** `set(string)`)*<a name="attr-projects_access-roles"></a>
-
-    A set of roles that should be applied.
 
 - [**`folders_access`**](#var-folders_access): *(Optional `list(folders_access)`)*<a name="var-folders_access"></a>
 
-  A set of folders with roles that are going to be granted to the service account.
+  DEPRECATED: please convert existing access to folder level IAM. This will be removed in the next breaking release.
 
   Default is `[]`.
-
-  Example:
-
-  ```hcl
-  folders_access = [{
-    folder = "folders/folder_id"
-    roles  = ["roles/editor"]
-  }]
-  ```
-
-  Each `folders_access` object in the list accepts the following attributes:
-
-  - [**`folder`**](#attr-folders_access-folder): *(**Required** `string`)*<a name="attr-folders_access-folder"></a>
-
-    The resource name of the folder the policy is attached to. Its format is `folders/{folder_id}`.
-
-  - [**`roles`**](#attr-folders_access-roles): *(**Required** `set(string)`)*<a name="attr-folders_access-roles"></a>
-
-    A set of roles that should be applied.
 
 - [**`organization_access`**](#var-organization_access): *(Optional `object(organization_access)`)*<a name="var-organization_access"></a>
 
-  An organization object setting the organization and the organization wide roles that are going to be granted to the service account.
+  DEPRECATED: please convert existing access to organization level IAM. This will be removed in the next breaking release.
 
   Default is `[]`.
-
-  Example:
-
-  ```hcl
-  organization_access = {
-    org_id = "your-organization-id"
-    roles  = ["roles/editor"]
-  }
-  ```
-
-  The `organization_access` object accepts the following attributes:
-
-  - [**`org_id`**](#attr-organization_access-org_id): *(**Required** `string`)*<a name="attr-organization_access-org_id"></a>
-
-    The organization ID.
-
-  - [**`roles`**](#attr-organization_access-roles): *(**Required** `set(string)`)*<a name="attr-organization_access-roles"></a>
-
-    A set of roles that should be applied.
 
 ### Extended Resource Configuration
 
@@ -295,15 +238,15 @@ The following attributes are exported in the outputs of the module:
 
 - [**`project_iam_member`**](#output-project_iam_member): *(`object(project_iam_member)`)*<a name="output-project_iam_member"></a>
 
-  All attributes of the created `google_project_iam_member` resource.
+  DEPRECATED: This will be removed in the next breaking release.
 
 - [**`folder_iam_member`**](#output-folder_iam_member): *(`object(folder_iam_member)`)*<a name="output-folder_iam_member"></a>
 
-  All attributes of the created `google_folder_iam_member` resource.
+  DEPRECATED: This will be removed in the next breaking release.
 
 - [**`organization_iam_member`**](#output-organization_iam_member): *(`object(organization_iam_member)`)*<a name="output-organization_iam_member"></a>
 
-  All attributes of the created `google_organization_iam_member` resource.
+  DEPRECATED: This will be removed in the next breaking release.
 
 ## External Documentation
 
@@ -314,6 +257,7 @@ The following attributes are exported in the outputs of the module:
 ### Terraform Google Provider Documentation:
 
 - https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
+- https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam
 
 ## Module Versioning
 
