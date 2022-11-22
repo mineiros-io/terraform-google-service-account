@@ -30,11 +30,11 @@ module "test" {
       authoritative = false
     },
     {
-      roles   = ["roles/test"]
+      role    = "roles/test"
       members = ["serviceAccount:${module.test-sa.service_account.email}"]
     },
     {
-      roles         = ["roles/editor"]
+      role          = "roles/editor"
       members       = ["computed:myserviceaccount"]
       authoritative = false
     }
