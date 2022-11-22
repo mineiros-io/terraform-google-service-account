@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1]
+
+### Fixed
+
+- Fix regression in using computed members in IAM bindings
+
+### Changed
+
+- Mark `var.projects_access` as deprecated in documentation
+- Mark `var.folders_access` as deprecated in documentation
+- Mark `var.organization_access` as deprecated in documentation
+
 ## [0.1.0]
 
 ### Added
@@ -92,6 +104,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add IAM support to the module
+
 ## [0.0.2]
 
 ### Added
@@ -104,7 +117,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial Implementation
 
-[unreleased]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.12...v0.1.0
 [0.0.12]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.10...v0.0.11
