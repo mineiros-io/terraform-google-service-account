@@ -67,17 +67,6 @@ variable "policy_bindings" {
   default     = null
 }
 
-variable "computed_members_map" {
-  type        = map(string)
-  description = "(Optional) A map of members to replace in 'members' to handle terraform computed values. Will be ignored when policy bindings are used."
-  default     = {}
-
-  validation {
-    condition     = alltrue([for k, v in var.computed_members_map : can(regex("^(allUsers|allAuthenticatedUsers|(user|serviceAccount|group|domain|principal|principalSet):)", v))])
-    error_message = "The value must be a non-empty string being a valid principal type identified with `allUsers`, `allAuthenticatedUsers` or prefixed with `user:`, `serviceAccount:`, `group:`, `domain:`, `principal:`, or `principalSet:`."
-  }
-}
-
 # ------------------------------------------------------------------------------
 # MODULE CONFIGURATION PARAMETERS
 # These variables are used to configure the module.

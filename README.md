@@ -21,9 +21,9 @@ secure, and production-grade cloud infrastructure.
 - [Module Features](#module-features)
 - [Getting Started](#getting-started)
 - [Module Argument Reference](#module-argument-reference)
+  - [Module Configuration](#module-configuration)
   - [Main Resource Configuration](#main-resource-configuration)
   - [Extended Resource Configuration](#extended-resource-configuration)
-- [Module Configuration](#module-configuration)
 - [Module Outputs](#module-outputs)
 - [External Documentation](#external-documentation)
   - [Google Documentation](#google-documentation)
@@ -62,6 +62,26 @@ module "terraform-google-service-account" {
 ## Module Argument Reference
 
 See [variables.tf] and [examples/] for details and use-cases.
+
+### Module Configuration
+
+- [**`module_enabled`**](#var-module_enabled): *(Optional `bool`)*<a name="var-module_enabled"></a>
+
+  Specifies whether resources in the module will be created.
+
+  Default is `true`.
+
+- [**`module_depends_on`**](#var-module_depends_on): *(Optional `list(dependency)`)*<a name="var-module_depends_on"></a>
+
+  A list of dependencies. Any object can be _assigned_ to this list to define a hidden external dependency.
+
+  Example:
+
+  ```hcl
+  module_depends_on = [
+    google_network.network
+  ]
+  ```
 
 ### Main Resource Configuration
 
@@ -176,15 +196,12 @@ See [variables.tf] and [examples/] for details and use-cases.
   - [**`members`**](#attr-iam-members): *(Optional `set(string)`)*<a name="attr-iam-members"></a>
 
     Identities that will be granted the privilege in role. Each entry can have one of the following values:
-     - `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account.
-     - `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account.
-     - `user:{emailid}`: An email address that represents a specific Google account. For example, alice@gmail.com or joe@example.com.
-     - `serviceAccount:{emailid}`: An email address that represents a service account. For example, my-other-app@appspot.gserviceaccount.com.
-     - `group:{emailid}`: An email address that represents a Google group. For example, admins@example.com.
-     - `domain:{domain}`: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
-     - `principalSet:{All identities in a group|All identities with a specific attribute value|All identities in a pool}`: Grants a role to all the identities in a workload identity pool, or to specific external identities based on their attributes. For details please see https://cloud.google.com/iam/docs/workload-identity-federation.
-    - `principal:{Single Identity}:` Grants a role to the specified identitiey in a workload identity pool. For details please see https://cloud.google.com/iam/docs/workload-identity-federation.
-     - `computed:{identifier}`: An existing key from `var.computed_members_map`.
+    - `allUsers`: A special identifier that represents anyone who is on the internet; with or without a Google account.
+    - `allAuthenticatedUsers`: A special identifier that represents anyone who is authenticated with a Google account or a service account.
+    - `user:{emailid}`: An email address that represents a specific Google account. For example, alice@gmail.com or joe@example.com.
+    - `serviceAccount:{emailid}`: An email address that represents a service account. For example, my-other-app@appspot.gserviceaccount.com.
+    - `group:{emailid}`: An email address that represents a Google group. For example, admins@example.com.
+    - `domain:{domain}`: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
 
     Default is `[]`.
 
@@ -255,35 +272,13 @@ See [variables.tf] and [examples/] for details and use-cases.
 
       An optional description of the expression. This is a longer text which describes the expression, e.g. when hovered over it in a UI.
 
-- [**`computed_members_map`**](#var-computed_members_map): *(Optional `map(string)`)*<a name="var-computed_members_map"></a>
-
-  A map of members to replace in `members` of various IAM settings to handle terraform computed values.
-
-  Default is `{}`.
-
-## Module Configuration
-
-- [**`module_enabled`**](#var-module_enabled): *(Optional `bool`)*<a name="var-module_enabled"></a>
-
-  Specifies whether resources in the module will be created.
-
-  Default is `true`.
-
-- [**`module_depends_on`**](#var-module_depends_on): *(Optional `list(dependency)`)*<a name="var-module_depends_on"></a>
-
-  A list of dependencies. Any object can be _assigned_ to this list to define a hidden external dependency.
-
-  Example:
-
-  ```hcl
-  module_depends_on = [
-    google_network.network
-  ]
-  ```
-
 ## Module Outputs
 
 The following attributes are exported in the outputs of the module:
+
+- [**`module_enabled`**](#output-module_enabled): *(`bool`)*<a name="output-module_enabled"></a>
+
+  Whether this module is enabled.
 
 - [**`iam`**](#output-iam): *(`list(iam)`)*<a name="output-iam"></a>
 

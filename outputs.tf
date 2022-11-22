@@ -31,3 +31,16 @@ output "organization_iam_member" {
   description = "All attributes of the created `google_organization_iam_member` resource."
   value       = try(google_organization_iam_member.organization, null)
 }
+
+# ------------------------------------------------------------------------------
+# OUTPUT ALL INPUT VARIABLES
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# OUTPUT MODULE CONFIGURATION
+# ------------------------------------------------------------------------------
+
+output "module_enabled" {
+  description = "Whether the module is enabled."
+  value       = var.module_enabled
+}

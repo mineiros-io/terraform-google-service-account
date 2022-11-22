@@ -15,8 +15,9 @@ module "test" {
   # add all optional arguments that create additional resources
   iam = [
     {
-      role    = "roles/iam.serviceAccountUser"
-      members = ["group:terraform-tests@mineiros.io"]
+      service_account_id = "my-service-account-id"
+      role               = "roles/iam.serviceAccountUser"
+      members            = ["group:terraform-tests@mineiros.io"]
     }
   ]
   policy_bindings = [
