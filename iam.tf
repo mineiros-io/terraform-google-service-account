@@ -1,6 +1,6 @@
 locals {
   iam_map = { for idx, iam in var.iam :
-    try(iam._key, iam.role) => idx
+    try(iam._key, iam.role) => iam
   }
 }
 
@@ -12,11 +12,12 @@ module "iam" {
   module_enabled    = var.module_enabled
   module_depends_on = var.module_depends_on
 
-  service_account_id   = try(google_service_account.service_account[0].name, null)
-  role                 = var.iam[each.value].role
-  members              = try(var.iam[each.value].members, [])
+  service_account_id = try(google_service_account.service_account[0].name, null)
+
+  role                 = each.value.role
+  members              = try(each.value.members, [])
   computed_members_map = var.computed_members_map
-  authoritative        = true # try(var.iam[each.value].authoritative, true)
+  authoritative        = try(each.value.authoritative, true)
 }
 
 module "policy_bindings" {
