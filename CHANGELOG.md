@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.0]
-
 ### Added
 
 - Add support for `var.computed_members_map`
@@ -104,8 +102,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial Implementation
 
-[unreleased]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.12...v0.1.0
+[unreleased]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.12...HEAD
 [0.0.12]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/mineiros-io/terraform-google-service-account/compare/v0.0.9...v0.0.10

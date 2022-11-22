@@ -5,7 +5,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 module "test-sa" {
-  source = "../.."
+  source = "github.com/mineiros-io/terraform-google-service-account?ref=v0.0.12"
 
   account_id = "service-account-id-${local.random_suffix}"
 }
