@@ -10,24 +10,28 @@ locals {
   iam = concat(local.iam_role, local.iam_roles)
 
   iam_map = { for idx, iam in local.iam :
-    try(iam._key, iam.role) => idx
+    try(iam._key, iam.role) => iam
   }
+
+  # hack: type-safe ternary
+  iam_for_each = [local.iam_map, {}][var.policy_bindings == null ? 0 : 1]
 }
 
 module "iam" {
   source = "github.com/mineiros-io/terraform-google-service-account-iam.git?ref=v0.1.0"
 
-  for_each = var.policy_bindings == null ? local.iam_map : {}
+  for_each = local.iam_for_each
 
   module_enabled    = var.module_enabled
   module_depends_on = var.module_depends_on
 
   service_account_id   = try(google_service_account.service_account[0].name, null)
-  role                 = local.iam[each.value].role
-  members              = try(local.iam[each.value].members, [])
+  role                 = each.value.role
+  members              = try(each.value.members, [])
   computed_members_map = var.computed_members_map
-  authoritative        = try(local.iam[each.value].authoritative, true)
+  authoritative        = try(each.value.authoritative, true)
 }
+
 module "policy_bindings" {
   source = "github.com/mineiros-io/terraform-google-service-account-iam.git?ref=v0.1.0"
 
