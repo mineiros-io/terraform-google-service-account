@@ -30,8 +30,13 @@ module "test" {
       authoritative = false
     },
     {
-      roles   = ["roles/editor", "roles/creator"]
-      members = ["computed:computed_sa"]
+      roles   = ["roles/test"]
+      members = ["serviceAccount:${module.test-sa.service_account.email}"]
+    },
+    {
+      roles         = ["roles/editor"]
+      members       = ["computed:myserviceaccount"]
+      authoritative = false
     }
   ]
   computed_members_map = {
