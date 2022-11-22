@@ -16,7 +16,7 @@ module "iam" {
   role                 = var.iam[each.value].role
   members              = try(var.iam[each.value].members, [])
   computed_members_map = var.computed_members_map
-  authoritative        = try(var.iam[each.value].authoritative, true)
+  authoritative        = true # try(var.iam[each.value].authoritative, true)
 }
 
 module "policy_bindings" {
