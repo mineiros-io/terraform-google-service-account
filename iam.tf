@@ -12,15 +12,15 @@ locals {
   iam_map = { for idx, iam in local.iam :
     try(iam._key, iam.role) => iam
   }
-
-  # hack: type-safe ternary
-  iam_for_each = [local.iam_map, {}][var.policy_bindings == null ? 0 : 1]
 }
 
 module "iam" {
   source = "github.com/mineiros-io/terraform-google-service-account-iam.git?ref=v0.1.0"
 
-  for_each = local.iam_for_each
+  # Hack ternary in Terraform to prevent
+  #   "Error: Inconsistent conditional result types"
+  #   "The true and false result expressions must have consistent types."
+  for_each = [local.iam_map, {}][var.policy_bindings == null ? 0 : 1]
 
   module_enabled    = var.module_enabled
   module_depends_on = var.module_depends_on
