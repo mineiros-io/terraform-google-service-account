@@ -59,3 +59,12 @@ resource "google_organization_iam_member" "organization" {
 
   member = "serviceAccount:${google_service_account.service_account[0].email}"
 }
+
+resource "google_service_account_key" "key" {
+  count = var.service_account_keys_count
+
+  service_account_id = google_service_account.service_account[0].name
+  key_algorithm      = var.key_algorithm
+  public_key_type    = var.public_key_type
+  private_key_type   = var.private_key_type
+}

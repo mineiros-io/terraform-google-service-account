@@ -78,6 +78,30 @@ variable "computed_members_map" {
   }
 }
 
+variable "service_account_keys_count" {
+  type        = number
+  description = "number of keys to be generated"
+  default     = 0
+}
+
+variable "key_algorithm" {
+  type        = string
+  description = "(Optional) The algorithm used to generate the key."
+  default     = "KEY_ALG_RSA_2048"
+}
+
+variable "public_key_type" {
+  type        = string
+  description = "(Optional) The output format of the public key requested."
+  default     = "TYPE_X509_PEM_FILE"
+}
+
+variable "private_key_type" {
+  type        = string
+  description = "(Optional) The output format of the private key."
+  default     = "TYPE_GOOGLE_CREDENTIALS_FILE"
+}
+
 # ------------------------------------------------------------------------------
 # MODULE CONFIGURATION PARAMETERS
 # These variables are used to configure the module.
