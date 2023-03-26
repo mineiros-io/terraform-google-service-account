@@ -8,12 +8,13 @@ module "terraform-kubernetes-cluster-role" {
   source = "git@github.com:mineiros-io/terraform-google-service-account.git?ref=v0.1.2"
   # All required module arguments
 
-  account_id   = "service-account-id"
+  account_id = "service-account-id"
+
+
+  # All optional module arguments set to the default values
   display_name = "Service Account"
   project      = "project id"
 
-  # All optional module arguments set to the default values
-  # "namespace" omitted since ClusterRoles are not namespaced  
   service_account_keys_count = 1
 
   # All optional module configuration arguments set to the default values.
