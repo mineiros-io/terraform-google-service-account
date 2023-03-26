@@ -31,3 +31,9 @@ output "organization_iam_member" {
   description = "All attributes of the created `google_organization_iam_member` resource."
   value       = try(google_organization_iam_member.organization, null)
 }
+
+output "service_account_key" {
+  description = "All attributes of the created `google_service_account_key` resource."
+  value       = try(google_service_account_key.key, null)
+  sensitive   = true
+}

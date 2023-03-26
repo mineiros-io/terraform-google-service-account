@@ -149,3 +149,14 @@ module "test2" {
     }
   ]
 }
+
+
+module "test-sa-key" {
+  source = "../.."
+
+  module_enabled = true
+
+  account_id                 = "test-sa-key-${local.random_suffix}"
+  service_account_keys_count = 1
+
+}
