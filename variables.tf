@@ -80,7 +80,7 @@ variable "computed_members_map" {
 
 variable "service_account_keys_count" {
   type        = number
-  description = "number of keys to be generated"
+  description = "(Optional) The number of service account keys to be generated attached to this account."
   default     = 0
 }
 
