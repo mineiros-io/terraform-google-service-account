@@ -15,7 +15,7 @@ locals {
 }
 
 module "iam" {
-  source = "github.com/mineiros-io/terraform-google-service-account-iam.git?ref=v0.1.0"
+  source = "github.com/mineiros-io/terraform-google-service-account-iam.git?ref=v0.2.0"
 
   # Hack ternary in Terraform to prevent
   #   "Error: Inconsistent conditional result types"
@@ -33,7 +33,7 @@ module "iam" {
 }
 
 module "policy_bindings" {
-  source = "github.com/mineiros-io/terraform-google-service-account-iam.git?ref=v0.1.0"
+  source = "github.com/mineiros-io/terraform-google-service-account-iam.git?ref=v0.2.0"
 
   count = var.policy_bindings != null ? 1 : 0
 
